@@ -51,27 +51,48 @@ const Task = () => {
     };
 
     return (
-        <div className="container mx-auto my-5 rounded-xl bg-yellow-200 h-screen">
-            <div>
-                <h1 className="text-3xl font-bold">ADD TODO</h1>
-                <input onChange={handleChange} value={todo} type="text" className="w-80 mx-4" />
-                <button onClick={handleAdd} className="bg-slate-600 mx-6 p-2 py-1 hover:bg-slate-950 text-white">ADD</button>
+        <div className=" mx-auto   bg-slate-500 
+        h-screen text-white p-4">
+            <div className="max-w-screen-lg mx-auto ">
+                <h1 className="text-3xl font-bold mb-4">ADD TODO</h1>
+                <div className="flex mb-6">
+
+                <input onChange={handleChange} 
+                value={todo} 
+                type="text" 
+                className="w-80 p-2 border border-slate-600 
+                rounded-md text-black  "
+                placeholder="Enter your todo......"
+                />
+                
+                <button onClick={handleAdd} 
+                className="bg-slate-600 mx-6 p-2 py-1 
+                hover:bg-slate-950 
+                text-white 
+                rounded-md">ADD</button>
+                </div>
             </div>
 
-            <h1 className="text-3xl font-bold">Your ToDos</h1>
+            <h1 className="text-3xl font-bold mb-4 p-4 mx-auto">Your ToDos</h1>
             <div>
                 {todos.map(item => (
-                    <div key={item.id} className="flex w-full justify-between">
+                    <div key={item.id} className="flex w-full justify-between 
+                    items-center mb-4">
                         <input
                             name={item.id}
                             onChange={handleCheckbox}
                             type="checkbox"
                             checked={item.isCompleted}
+                            className="mr-2"
                         />
                         <div className={item.isCompleted ? "line-through" : ""}>{item.todo}</div>
-                        <div className="my-2">
-                            <button onClick={(e) => handleEdit(e, item.id)} className="bg-slate-600 mx-6 p-2 py-1 hover:bg-slate-950 text-white rounded-xl">Edit</button>
-                            <button onClick={(e) => handleDelete(e, item.id)} className="bg-slate-600 mx-6 p-2 py-1 hover:bg-slate-950 text-white rounded-xl">Delete</button>
+                        <div className="flex space-x-2">
+                            <button onClick={(e) => handleEdit(e, item.id)} 
+                            className="bg-slate-600 mx-6 p-2 py-1
+                             hover:bg-slate-950 text-white rounded-md">Edit</button>
+                            <button onClick={(e) => handleDelete(e, item.id)} 
+                            className="bg-slate-600 mx-6 p-2 py-1
+                             hover:bg-slate-950 text-white rounded-md">Delete</button>
                         </div>
                     </div>
                 ))}
