@@ -3,8 +3,9 @@
 const Navbar = () => {
   return (
     
-      <nav className="flex justify-around bg-yellow-100 text-black py-2">
-        <div className="logo" >
+      <nav className="flex justify-around bg-yellow-100 text-black py-2 pb-5">
+            <img src="home.png" className="h-6 w-4" />
+        <div className="logo flex" >
             <span className="font-bold text-xl mx-8 cursor-pointer hover:text-purple-300 hover:font-bold duration-200">
                 Task
             </span>

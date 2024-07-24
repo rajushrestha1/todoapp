@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const Task = () => {
     const [todo, setTodo] = useState("");
@@ -52,9 +54,11 @@ const Task = () => {
 
     return (
         <div className=" mx-auto   bg-slate-500 
-        h-screen text-white p-4">
-            <div className="max-w-screen-lg mx-auto ">
-                <h1 className="text-3xl font-bold mb-4">ADD TODO</h1>
+        h-screen text-white p-4 ">
+            <div className=" flex flex-col items-center  max-w-screen-lg mx-auto h-full">
+
+            <div className="max-w-screen-lg mx-auto">
+                <h1 className="text-3xl font-bold mb-4 ">ADD TODO</h1>
                 <div className="flex mb-6">
 
                 <input onChange={handleChange} 
@@ -73,7 +77,7 @@ const Task = () => {
                 </div>
             </div>
 
-            <h1 className="text-3xl font-bold mb-4 p-4 mx-auto">Your ToDos</h1>
+            <h1 className="text-3xl font-bold mb-4 p-4 mx-auto">Your TODOS</h1>
             <div>
                 {todos.map(item => (
                     <div key={item.id} className="flex w-full justify-between 
@@ -85,17 +89,22 @@ const Task = () => {
                             checked={item.isCompleted}
                             className="mr-2"
                         />
-                        <div className={item.isCompleted ? "line-through" : ""}>{item.todo}</div>
-                        <div className="flex space-x-2">
+                        <div className={item.isCompleted ? "line-through border rounded-md bg-purple-500" : ""}>{item.todo}</div>
+                        <div className="flex space-x-2  ">
                             <button onClick={(e) => handleEdit(e, item.id)} 
                             className="bg-slate-600 mx-6 p-2 py-1
-                             hover:bg-slate-950 text-white rounded-md">Edit</button>
+                             hover:bg-slate-950 text-white rounded-md ">
+                                <EditIcon size={15} />
+                             </button>
                             <button onClick={(e) => handleDelete(e, item.id)} 
                             className="bg-slate-600 mx-6 p-2 py-1
-                             hover:bg-slate-950 text-white rounded-md">Delete</button>
+                             hover:bg-slate-950 text-white rounded-md">
+                                <DeleteIcon />
+                             </button>
                         </div>
                     </div>
                 ))}
+            </div>
             </div>
         </div>
     );
