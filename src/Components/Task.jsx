@@ -54,7 +54,7 @@ const Task = () => {
 
     return (
         <div className=" flex justify-center 
-        items-center bg-blue-200
+        items-center bg-gradient-to-t from-rose-200 to-cyan-400
         h-screen text-black p-4 ">
             <div className=" bg-yellow-300 p-6 
             rounded-lg shadow-lg max-w-md w-full">
