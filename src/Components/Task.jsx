@@ -53,12 +53,14 @@ const Task = () => {
     };
 
     return (
-        <div className=" mx-auto   bg-slate-500 
-        h-screen text-white p-4 ">
-            <div className=" flex flex-col items-center  max-w-screen-lg mx-auto h-full">
+        <div className=" flex justify-center 
+        items-center bg-blue-200
+        h-screen text-black p-4 ">
+            <div className=" bg-yellow-300 p-6 
+            rounded-lg shadow-lg max-w-md w-full">
 
+                <h1 className="text-3xl font-bold mb-4 text-center ">ADD TODO</h1>
             <div className="max-w-screen-lg mx-auto">
-                <h1 className="text-3xl font-bold mb-4 ">ADD TODO</h1>
                 <div className="flex mb-6">
 
                 <input onChange={handleChange} 
@@ -89,7 +91,7 @@ const Task = () => {
                             checked={item.isCompleted}
                             className="mr-2"
                         />
-                        <div className={item.isCompleted ? "line-through border rounded-md bg-purple-500" : ""}>{item.todo}</div>
+                        <div className={`flex-1 ${item.isCompleted ? "line-through border rounded-md bg-purple-500" : ""} break-words overflow-hidden`}>{item.todo}</div>
                         <div className="flex space-x-2  ">
                             <button onClick={(e) => handleEdit(e, item.id)} 
                             className="bg-slate-600 mx-6 p-2 py-1
